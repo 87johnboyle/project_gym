@@ -1,6 +1,6 @@
 require_relative( '../db/sql_runner' )
 
-class Class
+class Session
 
   attr_reader( :id,)
   attr_accessor( :name, :genre, :capacity)
@@ -12,9 +12,10 @@ class Class
     @capacity = options['capacity'].to_i
   end
 
+# Instance methods
 
   def save()
-    sql = "INSERT INTO classes
+    sql = "INSERT INTO sessions
     (name, genre, capacity)
     VALUES
     ($1, $2, $3)
@@ -25,7 +26,7 @@ class Class
   end
 
   def update()
-    sql = "UPDATE classes SET
+    sql = "UPDATE sessions SET
     (name, genre, capacity) = ($1, $2, $3)
     where id = $4"
     values = [@name, @genre, @capacity, @id]
@@ -33,19 +34,30 @@ class Class
   end
 
   def delete()
-    sql = "DELETE FROM classes where id = $1"
+    sql = "DELETE FROM sessions where id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
+  def members()
+    sql = "SELECT * FROM members
+          INNER JOIN bookings on bookings.member_id = member.id
+          WHERE bookings.session_id = $1"
+          values = [@id]
+          results = SqlRunner.run(sql, values)
+          return results.map{|session| Session.new( session )}
+        end
+
+  # Class methods
+
   def self.all()
-    sql = "SELECT * FROM classes"
+    sql = "SELECT * FROM sessions"
     results = SqlRunner.run(sql)
     return results.map {|booking| Booking.new( booking )}
   end
 
   def self.delete_all
-    sql = "DELETE FROM classes"
+    sql = "DELETE FROM sessions"
     SqlRunner.run( sql )
   end
 

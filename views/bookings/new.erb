@@ -1,0 +1,19 @@
+<h1>New Bookings</h1>
+<div>
+
+  <form  action="/sessions/<%= @session_id %>/bookings" method="post">
+    <label id ="new_booking">
+      Select Member:
+      <select name="member_id">
+        <% for member in @members %>
+        <% if !@attending.include? member.id %>
+        <option value="<%= member.id %>"><%= member.first_name %></option>
+        <% end %>
+        <% end %>
+      </select>
+    </label>
+    <br /><br /><br /><br />
+    <input class="button-forms" type='submit' value="Add to class">
+  </form>
+
+</div>

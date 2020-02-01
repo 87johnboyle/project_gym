@@ -1,8 +1,8 @@
 DROP TABLE bookings;
 DROP TABLE members;
-DROP TABLE classes;
+DROP TABLE sessions;
 
-CREATE TABLE classes
+CREATE TABLE sessions
 (id SERIAL primary key,
 name VARCHAR(255),
 genre VARCHAR(255),
@@ -21,5 +21,5 @@ CREATE TABLE members
 CREATE TABLE bookings
 (id SERIAL primary key,
 member_id INT references members(id) ON DELETE CASCADE,
-class_id INT references classes(id) ON DELETE CASCADE
+session_id INT references sessions(id) ON DELETE CASCADE
 );

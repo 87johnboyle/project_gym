@@ -1,7 +1,5 @@
 require_relative( '../db/sql_runner' )
 
-require_relative( '../db/sql_runner' )
-
 class Member
 
   attr_reader( :id,)
@@ -14,6 +12,7 @@ class Member
     @premium = options['premium']
   end
 
+# Instance methods
 
   def save()
     sql = "INSERT INTO members
@@ -39,6 +38,17 @@ class Member
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def booked_sessions()
+    sql = "SELECT * FROM sessions
+          INNER JOIN bookings on bookings.session_id = session.id
+          WHERE bookings.member_id = $1"
+          values = [@id]
+          results = SqlRunner.run(sql, values)
+          return results.map{|session| Session.new( session )}
+        end
+
+  # Class methods
 
   def self.all()
     sql = "SELECT * FROM members"
