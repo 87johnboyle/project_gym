@@ -4,37 +4,51 @@ require_relative( '../db/sql_runner' )
 
 class Member
 
-attr_reader( :id,)
-attr_accessor( :first_name, :last_name, :premium)
+  attr_reader( :id,)
+  attr_accessor( :first_name, :last_name, :premium)
 
-def initalize( options )
-  @id = options['id'].to_i if options['id']
-  @first_name = options['first_name']
-  @last_name = options['last_name']
-  @premium = options['premium']
-end
+  def initialize( options )
+    @id = options['id'].to_i if options['id']
+    @first_name = options['first_name']
+    @last_name = options['last_name']
+    @premium = options['premium']
+  end
 
 
-def save()
-  sql = "INSERT INTO members
-  (first_name, last_name, premium)
-  VALUES
-  ($1, $2, $3)
-  RETURNING id"
-  values = [@first_name, @last_name, @genre]
-  results = SqlRunner.run(sql, values)
-  @id = results.first()['id'].to_i
-end
+  def save()
+    sql = "INSERT INTO members
+    (first_name, last_name, premium)
+    VALUES
+    ($1, $2, $3)
+    RETURNING id"
+    values = [@first_name, @last_name, @premium]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
 
-def self.all()
-  sql = "SELECT * FROM members"
-  results = SqlRunner.run(sql)
-  return results.map( |booking| Booking.new( booking ))
-end
+  def update()
+    sql = "UPDATE members SET
+    (first_name, last_name, premium) = ($1, $2, $3)
+    where id = $4"
+    values = [@first_name, @last_name, @premium, @id]
+    SqlRunner.run(sql, values)
+  end
 
-def self.delete_all
-  sql = "DELETE FROM members"
-  SqlRunner.new( sql )
-end
+  def delete()
+    sql = "DELETE FROM members where id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM members"
+    results = SqlRunner.run(sql)
+    return results.map {|booking| Booking.new( booking )}
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM members"
+    SqlRunner.run(sql)
+  end
 
 end

@@ -6,7 +6,7 @@ CREATE TABLE classes
 (id SERIAL primary key,
 name VARCHAR(255),
 genre VARCHAR(255),
-capacity INT,
+capacity INT
 -- time,
 -- date
 );
