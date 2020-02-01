@@ -7,8 +7,8 @@ CREATE TABLE classes
 name VARCHAR(255),
 genre VARCHAR(255),
 capacity INT,
-time,
-date
+-- time,
+-- date
 );
 
 CREATE TABLE members
