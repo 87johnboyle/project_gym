@@ -7,7 +7,7 @@
       <select name="member_id">
         <% for member in @members %>
         <% if !@attending.include? member.id %>
-        <option value="<%= member.id %>"><%= member.first_name %></option>
+        <option value="<%= member.id %>"><%= member.first_name %> <%= member.last_name%></option>
         <% end %>
         <% end %>
       </select>

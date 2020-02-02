@@ -19,7 +19,7 @@ end
 get '/sessions/:id/new_booking' do
   @members = Member.all
   @session_id = params[:id]
-  @attending = Session.find(params[:id]).members.map {|member| member.id}
+  @attending = Session.find(params[:id]).booked_members.map {|member| member.id}
   erb (:'bookings/new')
 end
 
@@ -32,16 +32,16 @@ end
 post '/sessions/:session_id/bookings' do
   booking = Booking.new(params)
   booking.save
-  redirect to "/sessions/"
-end
-
-post '/members/:member_id/bookings' do
-  booking = Booking.new(params)
-  booking.save
-  redirect to "/members/"
+  session = Session.find(params['session_id'])
+  session.reduce_capacity
+  session.update
+  redirect to "/sessions"
 end
 
   post '/bookings/:id/delete' do
     Booking.delete(params[:id])
+    session = Session.find(params['session_id'])
+    session.increase_capacity
+    session.update
   redirect to "/sessions"
 end

@@ -42,6 +42,14 @@ class Session
           return results.map{|member| Member.new( member )}
   end
 
+  def reduce_capacity()
+    @capacity -=1
+  end
+
+  def reduce_capacity()
+    @capacity +=1
+  end
+
   # Class methods
 
   def self.all()

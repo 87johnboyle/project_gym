@@ -32,8 +32,12 @@
     <input class ="show_member_input" type="submit" value="View Members"/>
   </form>
 
-  <!-- <form  class ="show_member_form" action="/sessions/<%= @session.id %>/bookings/new">
+<% if @session.capacity > 0 %>
+
+  <form  class ="show_member_form" action="/sessions/<%= @session.id %>/new_booking">
     <input class ="show_member_input" type="submit" value="Book Member"/>
-  </form> -->
+  </form>
+
+<% end %>
 
 </div>

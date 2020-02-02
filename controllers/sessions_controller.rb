@@ -26,16 +26,16 @@ end
 post '/sessions' do
   session = Session.new(params)
   session.save
-  redirect to('/sessions')
+  redirect to '/sessions'
 end
 
 post '/sessions/:id' do
   session = Session.new(params)
   session.update
-  redirect to('/sessions')
+  redirect to '/sessions'
 end
 
 post '/sessions/:id/delete' do
   Session.delete(params[:id])
-redirect to('/sessions')
+redirect to '/sessions'
 end
