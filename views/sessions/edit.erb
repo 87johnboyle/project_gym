@@ -1,0 +1,22 @@
+<h1>Edit Session</h1>
+
+<form method = "POST" action="/sessions/<%= @session.id%>">
+
+  <div>
+    <label for ="title-field">Title</label>
+    <input class="new_form" type ="text" name ="title" id="title-field" value ="<%= @session.name %>" />
+    <br />
+  </div>
+  <div class ="form_space">
+    <label for="genre-field">Genre</label>
+    <input class="new_form" type="text" name="genre" id="cost-field" value="<%= @session.genre %>" />
+    <br />
+  </div>
+  <div class ="form_space">
+    <label for="capacity-field"> Capacity</label>
+    <input class="new_form" type="number" name="capacity" id="capacity-field" value="<%= @session.capacity %>" />
+    <br />
+  </div>
+  <input type="submit" value="Edit Session" />
+
+</form>

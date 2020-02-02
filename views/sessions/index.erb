@@ -1,0 +1,21 @@
+<div>
+  <h1>Sessions Page</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      </thead>
+      <tbody>
+    <tr><% @sessions.each do |session| %>
+      <td><%= session.name %></td>
+      <td><%= session.genre %></td>
+        <td><form action="/sessions/<%= session.id%>">
+          <input type="submit" value="View Session"/>
+        </form></td>
+</tr>
+    <% end %>
+</tbody>
+  </table>
+
+  </div>

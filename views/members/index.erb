@@ -1,0 +1,27 @@
+<div>
+  <h1>Member Page</h1>
+
+    <table>
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Premium</th>
+        </thead>
+
+        <tbody>
+      <tr><% @members.each do |member| %>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.premium %></td>
+          <td><form action="/members/<%= member.id%>">
+            <input type="submit" value="View Member"/>
+          </form></td>
+          </tr>
+
+      <% end %>
+  </tbody>
+
+    </table>
+
+</div>

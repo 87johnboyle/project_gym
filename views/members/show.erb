@@ -1,0 +1,39 @@
+<h1><%= @member.first_name %><%= @member.last_name%></h1>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Premium</th>
+  </tr>
+
+  <tr>
+    <td>
+      <%= @member.first_name %>
+    </td>
+    <td>
+      <%= @member.last_name %>
+    </td>
+    <td>
+      <%= @member.premium %>
+    </td>
+  </tr>
+</table>
+<div class="show_member_btn">
+  <form class ="show_member_form" action="/members/<%= @member.id %>/edit">
+    <input class ="show_member_input" type="submit" value="Edit Member"/>
+  </form>
+
+  <form class ="show_member_form" method="post" action="/members/<%= @member.id %>/delete">
+    <input class ="show_member_input" type="submit" value="Delete Member"/>
+  </form>
+
+  <form  class ="show_member_form" action="/members/<%= @member.id %>/bookings">
+    <input class ="show_member_input" type="submit" value="View Sessions"/>
+  </form>
+
+  <!-- <form  class ="show_member_form" action="/members/<%= @member.id %>/bookings">
+  <input class ="show_member_input" type="submit" value="Book Class"/>
+</form> -->
+
+</div>

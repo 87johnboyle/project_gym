@@ -4,19 +4,23 @@ require_relative( '../models/session.rb' )
 also_reload( '../models/*' )
 
 get '/sessions' do
+  @sessions = Session.all()
   erb ( :"sessions/index")
 end
 
 get '/sessions/new' do
+  @sessions = Session.all
   erb (:"sessions/new")
 end
 
 get '/sessions/:id' do
-  erb (:'session/show')
+  @session = Session.find(params[:id])
+  erb (:'sessions/show')
 end
 
 get '/sessions/:id/edit' do
-  erb (:'session/edit')
+  @session = Session.find(params[:id])
+  erb (:'sessions/edit')
 end
 
 post '/sessions' do

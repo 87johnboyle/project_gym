@@ -46,14 +46,14 @@ class Member
           values = [@id]
           results = SqlRunner.run(sql, values)
           return results.map{|session| Session.new( session )}
-        end
+  end
 
   # Class methods
 
   def self.all()
     sql = "SELECT * FROM members"
     results = SqlRunner.run(sql)
-    return results.map {|booking| Booking.new( booking )}
+    return results.map {|member| Member.new( member )}
   end
 
   def self.delete_all
@@ -61,4 +61,11 @@ class Member
     SqlRunner.run(sql)
   end
 
+  def self.find ( id )
+    sql = "SELECT * FROM members
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Member.new (results.first )
+  end
 end

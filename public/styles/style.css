@@ -1,0 +1,42 @@
+table, tr, td {
+  border: 1px solid black;
+}
+
+#logo{
+  display: inline-block;
+  padding-top: 2em;
+  padding-right: 2em;
+}
+
+
+nav {
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fbfbfb;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #999;
+}
+
+p {
+  font-size: 1.2em;
+}

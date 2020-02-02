@@ -1,0 +1,39 @@
+<h1><%= @session.name %></h1>
+
+<table>
+  <tr>
+
+    <th>Genre</th>
+    <th>Capacity</th>
+
+  </tr>
+
+  <tr>
+
+
+    <td><%= @session.genre %></td>
+    <td><%= @session.capacity %></td>
+
+  </tr>
+</table>
+
+<div class="show_member_btn">
+
+  <form  class ="show_member_form" action="/sessions/<%= @session.id %>/edit">
+    <input class ="show_member_input" type="submit" value="Edit Class" class="boxing-buttons"/>
+  </form>
+
+  <form class ="show_member_form" method="post" action="/gym_classes/<%= @session.id %>/delete">
+    <input class ="show_member_input" type="submit" value="Delete Class"/>
+  </form>
+
+
+  <form  class ="show_member_form" action="/sessions/<%= @session.id %>/bookings">
+    <input class ="show_member_input" type="submit" value="View Members"/>
+  </form>
+
+  <!-- <form  class ="show_member_form" action="/sessions/<%= @session.id %>/bookings/new">
+    <input class ="show_member_input" type="submit" value="Book Member"/>
+  </form> -->
+
+</div>

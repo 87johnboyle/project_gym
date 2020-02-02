@@ -32,11 +32,11 @@ end
 post '/sessions/:session_id/bookings' do
   booking = Booking.new(params)
   booking.save
-  redirect to('/sessions/#{params['session_id']}/bookings')
+  redirect to "/sessions/#{params['session_id']}/bookings"
 end
 
 post '/members/:member_id/bookings' do
   booking = Booking.new(params)
   booking.save
-  redirect to('/members/#{params['session_id']}/bookings')
+  redirect to "/members/#{params['session_id']}/bookings"
 end
