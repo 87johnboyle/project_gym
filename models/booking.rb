@@ -32,12 +32,13 @@ class Booking
     SqlRunner.run(sql, values)
   end
 
-  def member()
+  def booked_members()
     sql = "SELECT * FROM members
-    where id = $1"
-    values = [@member_id]
-    results = SqlRunner.run(sql, values)
-    return Member.new(results.first)
+          INNER JOIN bookings ON bookings.member_id = members.id
+          WHERE bookings.session_id = $1"
+          values = [@id]
+          results = SqlRunner.run(sql, values)
+          return results.map{|member| Member.new( member )}
   end
 
   def sessions()
@@ -73,6 +74,14 @@ class Booking
     values = [id]
     results = SqlRunner.run( sql, values )
     return Booking.new (results.first )
+  end
+
+  def self.members(id)
+    sql = "SELECT members.* FROM members
+    INNER JOIN bookings.member_id = members.id
+    WHERE session_id = $1"
+    results = SqlRunner.run(sql, values)
+    return results.map {|member| Member.new(member)}
   end
 
 end

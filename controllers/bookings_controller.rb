@@ -11,10 +11,9 @@ get '/bookings' do
 end
 
 get '/sessions/:id/bookings' do
-  @session = Session.find(params[:id])
-  @bookings = Booking.all()
-  @members = @session.members()
-  erb (:"sessions/bookings")
+  @sessions = Session.find(params[:id])
+  @members = @sessions.booked_members()
+  erb (:'sessions/bookings')
 end
 
 get '/sessions/:id/new_booking' do

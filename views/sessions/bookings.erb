@@ -1,8 +1,6 @@
 <div>
 
-  <h1>
-    <%= @session.name %> Attendance List
-  </h1>
+  <h1> <%= @sessions.name %> Attendance List  </h1>
 
 
   <table>
@@ -16,12 +14,9 @@
 
     <tbody>
   <tr>
-    <% for booking in @bookings %>
-      <td><%=booking.member.first_name %></td>
-      <td><%=booking.member.last_name %></td>
-      <td><form action="/bookings/<%=booking.id%>/delete" method="POST">
-          <input type="submit" value="Delete" />
-        </form></td>
+    <% for member in @members %>
+      <td><%=member.first_name %></td>
+      <td><%=member.last_name%></td>
         </tr>
       <% end %>
     </tbody>
