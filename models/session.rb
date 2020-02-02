@@ -33,12 +33,6 @@ class Session
     SqlRunner.run(sql, values)
   end
 
-  def delete()
-    sql = "DELETE FROM sessions where id = $1"
-    values = [@id]
-    SqlRunner.run(sql, values)
-  end
-
   def members()
     sql = "SELECT * FROM members
           INNER JOIN bookings on bookings.member_id = member.id
@@ -54,6 +48,12 @@ class Session
     sql = "SELECT * FROM sessions"
     results = SqlRunner.run(sql)
     return results.map {|session| Session.new( session )}
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM sessions where id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
   end
 
   def self.delete_all

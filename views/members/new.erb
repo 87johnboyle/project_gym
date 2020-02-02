@@ -1,24 +1,28 @@
 <h1>New Member</h1>
 
 <form method = "POST" action ="/members">
-  <div class ="form_space">
-    <label for ="first_name">First Name:</label>
-    <input class="new_form" id ="first_name" type="text" name = "first_name" />
 
-  </div>
   <div class ="form_space">
-    <label for ="last_name">Last Name:</label>
-    <input class="new_form" id = "last_name" type="text" name ="last_name"  />
+    <label for ="first-name-field">First Name</label>
+    <input class="new_form" type ="text" name ="first_name" id="first-name-field" value = "" />
+    <br />
+  </div>
 
-  </div>
   <div class ="form_space">
-    <label for ="premium">Select a Membership</label><br />
-    <select id="premium" name="premium">
-      <option value=True>Premium Membership</option>
-      <option value=False>Basic Membership</option>
+    <label for="last-name-field">Last Name</label>
+    <input class="new_form" type="text" name="last_name" id="last-name-field" value="" />
+    <br />
+  </div>
+
+  <div class ="form_space">
+    <label for="premium"> Select Membership</label>
+    <select name="premium" id="premium">
+      <option value = TRUE > Premium</option>
+      <option value = FALSE> Basic </option>
     </select>
 
   </div>
+
   <input class="new" type="submit" value"Submit New Member" />
 
 

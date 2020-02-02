@@ -1,7 +1,7 @@
 require_relative( "../models/booking.rb" )
 require_relative( "../models/session.rb" )
 require_relative( "../models/member.rb" )
-# require ('pry')
+require ('pry')
 
 Booking.delete_all()
 Member.delete_all()
@@ -71,5 +71,5 @@ booking2.save
 booking2.session_id = session2.id
 booking2.update
 
-# binding.pry
+binding.pry
 nil

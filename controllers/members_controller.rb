@@ -8,15 +8,16 @@ get '/members' do
   erb (:"members/index")
 end
 
+get '/members/new' do
+  @members = Member.all
+  erb (:"members/new")
+end
+
 get '/members/:id' do
   @member = Member.find(params[:id])
   erb ( :"members/show" )
 end
 
-get '/members/new' do
-  @members = Member.all()
-  erb (:"members/new")
-end
 
 get '/members/:id/edit' do
   @member = Member.find(params[:id])

@@ -6,25 +6,28 @@
 
 
     <div class ="form_space">
-      <label for ="first-name-field">First Name:</label>
+      <label for ="first-name-field">First Name</label>
       <input class="new_form" type ="text" name ="first_name" id="first-name-field" value ="<%= @member.first_name %>" />
       <br />
     </div>
+    
     <div class ="form_space">
-      <label for="last-name-field">Last Name:</label>
+      <label for="last-name-field">Last Name</label>
       <input class="new_form" type="text" name="last_name" id="last-name-field" value="<%= @member.last_name %>" />
       <br />
     </div>
+
     <div class ="form_space">
-      <label for="membership_type"> Select your membership</label>
-      <select name="membership_type" id="membership_type">
-        <option value ="Premium" <%= "selected" if @member.premium == TRUE %>> Premium</option>
-        <option value ="Basic" <%= "selected" if @member.premium == FALSE %>>Basic</option>
+      <label for="premium"> Select Membership</label>
+      <select name="premium" id="premium">
+        <option value =""></option>
+        <option value = TRUE <%= "selected" if @member.premium == TRUE %>> Premium</option>
+        <option value = FALSE <%= "selected" if @member.premium == FALSE %>> Basic </option>
       </select>
       <br />
     </div>
     <div class ="form_space">
-      <input type="submit" value ="Edit Member" />
+      <input type="submit" value ="Submit Changes" />
     </div>
   </form>
 

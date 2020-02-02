@@ -15,7 +15,7 @@ CREATE TABLE members
 (id SERIAL primary key,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
-  premium BOOLEAN
+  premium BOOLEAN NOT NULL
 );
 
 CREATE TABLE bookings
