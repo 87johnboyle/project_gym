@@ -57,19 +57,19 @@ member3 = Member.new({
   member2.last_name = "Boyle"
   member2.update
 
-booking1 = Booking.new({
-  "session_id" => session1.id,
-  "member_id" => member1.id
-})
+# booking1 = Booking.new({
+#   "session_id" => session1.id,
+#   "member_id" => member1.id
+# })
 booking2 = Booking.new({
   "session_id" => session1.id,
   "member_id" => member2.id
 })
-
-booking1.save
+#
+# booking1.save
 booking2.save
-booking2.session_id = session2.id
-booking2.update
+# booking2.session_id = session2.id
+# booking2.update
 
 binding.pry
 nil

@@ -18,7 +18,6 @@ get '/members/:id' do
   erb ( :"members/show" )
 end
 
-
 get '/members/:id/edit' do
   @member = Member.find(params[:id])
   erb (:'members/edit')

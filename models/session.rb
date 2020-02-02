@@ -35,7 +35,7 @@ class Session
 
   def members()
     sql = "SELECT * FROM members
-          INNER JOIN bookings on bookings.member_id = member.id
+          INNER JOIN bookings on bookings.member_id = members.id
           WHERE bookings.session_id = $1"
           values = [@id]
           results = SqlRunner.run(sql, values)

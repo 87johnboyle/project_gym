@@ -1,27 +1,30 @@
 <div>
 
   <h1>
-    <%= @members.first_name %> is booked in for -
+    <%= @session.name %> Attendance List
   </h1>
-  <table>
-    <tr>
-      <th>
-        Title
-      </th>
-      <th>
-        Time
-      </th>
-    </tr>
-    <% for session in @sessions %>
-    <tr>
-      <td>
-        <%= session.name %>
-      </td>
-      <!-- <td>
-        <%= session.time %>
-      </td> -->
 
+
+  <table>
+    <thead>
+    <tr>
+
+      <th>First Name</th>
+      <th>Last Name</th>
     </tr>
-    <% end %>
-  </table>
+    <thead>
+
+    <tbody>
+  <tr>
+    <% for booking in @bookings %>
+      <td><%=booking.member.first_name %></td>
+      <td><%=booking.member.last_name %></td>
+      <td><form action="/bookings/<%=booking.id%>/delete" method="POST">
+          <input type="submit" value="Delete" />
+        </form></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
 </div>

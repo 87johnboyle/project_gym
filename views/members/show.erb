@@ -19,6 +19,7 @@
     </td>
   </tr>
 </table>
+
 <div class="show_member_btn">
   <form class ="show_member_form" action="/members/<%= @member.id %>/edit">
     <input class ="show_member_input" type="submit" value="Edit Member"/>
@@ -32,8 +33,8 @@
     <input class ="show_member_input" type="submit" value="View Sessions"/>
   </form>
 
-  <!-- <form  class ="show_member_form" action="/members/<%= @member.id %>/bookings">
-  <input class ="show_member_input" type="submit" value="Book Class"/>
-</form> -->
+  <form  class ="show_member_form" action="/members/ <%= @member.id %> /bookings">
+    <input class ="show_member_input" type="submit" value="Book Class"/>
+  </form>
 
 </div>
