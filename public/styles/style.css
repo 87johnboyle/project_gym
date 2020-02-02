@@ -1,6 +1,16 @@
 table, tr, td {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   font-family: 'Roboto', sans-serif;
+  padding: 6px;
+  border-collapse: collapse;
+
+}
+
+th {
+  border-bottom: 2px solid black;
+  border-collapse: collapse;
+  padding: 8px;
+  background: lightgrey
 }
 
 h1 {
@@ -12,10 +22,17 @@ h1 {
   padding-top: 2em;
   padding-right: 2em;
 }
+main {
+  padding: 25px;
+}
 
+head{
+  padding: 25px;
+}
 
 nav {
   padding: 10px;
+  padding-right: 25px;
 }
 
 ul {
@@ -23,12 +40,8 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #fbfbfb;
+  background-color: #e3e3e3;
   font-family: 'Roboto', sans-serif;
-}
-
-li {
-  float: left;
 }
 
 li a {
@@ -37,6 +50,8 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  float: left;
+  font-size: 18px;
 }
 
 li a:hover {
@@ -45,4 +60,13 @@ li a:hover {
 
 p {
   font-size: 1.2em;
+}
+
+input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }

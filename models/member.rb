@@ -42,6 +42,9 @@ class Member
           return results.map{|session| Session.new( session )}
   end
 
+  def search()
+  end
+
   # Class methods
 
   def self.all()
