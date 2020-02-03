@@ -1,9 +1,10 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require_relative( '../models/booking.rb' )
+require_relative('../models/booking.rb')
 require_relative('../models/member.rb')
 require_relative('../models/session.rb')
 also_reload( '../models/*' )
+require('pry')
 
 get '/bookings' do
   @bookings = Booking.all()
@@ -13,6 +14,7 @@ end
 get '/sessions/:id/bookings' do
   @sessions = Session.find(params[:id])
   @members = @sessions.booked_members()
+  @bookings = Booking.all()
   erb (:'sessions/bookings')
 end
 
@@ -38,10 +40,10 @@ post '/sessions/:session_id/bookings' do
   redirect to "/sessions"
 end
 
-  post '/bookings/:id/delete' do
-    Booking.delete(params[:id])
-    session = Session.find(params['session_id'])
-    session.increase_capacity
-    session.update
+post '/bookings/:id/delete' do
+  # session = Session.find(params['session_id'])
+  # session.increase_capacity
+  # session.update
+  Booking.delete(params[:id])
   redirect to "/sessions"
 end

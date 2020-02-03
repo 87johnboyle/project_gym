@@ -11,7 +11,7 @@ class Booking
     @member_id = options['member_id'].to_i
   end
 
-# Instance methods
+  # Instance methods
 
   def save()
     sql = "INSERT INTO bookings
@@ -34,11 +34,18 @@ class Booking
 
   def booked_members()
     sql = "SELECT * FROM members
-          INNER JOIN bookings ON bookings.member_id = members.id
-          WHERE bookings.session_id = $1"
-          values = [@id]
-          results = SqlRunner.run(sql, values)
-          return results.map{|member| Member.new( member )}
+    INNER JOIN bookings ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|member| Member.new( member )}
+  end
+
+  def member()
+    sql = "SELECT * FROM members WHERE id = $1"
+    values=[@member_id]
+    results = SqlRunner.run(sql, values)
+    return Member.new(results.first)
   end
 
   def sessions()
@@ -49,7 +56,7 @@ class Booking
     return Session.new(results.first)
   end
 
-    # Class methods
+  # Class methods
 
   def self.all()
     sql = "SELECT * FROM bookings"
