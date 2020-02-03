@@ -3,33 +3,35 @@ require_relative( '../db/sql_runner' )
 class Session
 
   attr_reader( :id,)
-  attr_accessor( :name, :genre, :capacity)
+  attr_accessor( :name, :genre, :capacity, :session_time, :session_date)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @genre = options['genre']
     @capacity = options['capacity'].to_i
+    @session_time = options['session_time']
+    @session_date = options['session_date']
   end
 
 # Instance methods
 
   def save()
     sql = "INSERT INTO sessions
-    (name, genre, capacity)
+    (name, genre, capacity, session_time, session_date)
     VALUES
-    ($1, $2, $3)
+    ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@name, @genre, @capacity]
+    values = [@name, @genre, @capacity, @session_time, @session_date]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update()
     sql = "UPDATE sessions SET
-    (name, genre, capacity) = ($1, $2, $3)
-    where id = $4"
-    values = [@name, @genre, @capacity, @id]
+    (name, genre, capacity, session_time, session_date) = ($1, $2, $3, $4, $5)
+    where id = $6"
+    values = [@name, @genre, @capacity, @session_time, @session_date, @id]
     SqlRunner.run(sql, values)
   end
 

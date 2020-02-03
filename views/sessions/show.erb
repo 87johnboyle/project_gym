@@ -5,9 +5,11 @@
 
     <th>Genre</th>
     <th>Capacity</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>View</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
 
 
   </tr>
@@ -17,6 +19,8 @@
 
     <td><%= @session.genre %></td>
     <td><%= @session.capacity %></td>
+    <td><%= @session.session_date %></td>
+    <td><%= @session.session_time %></td>
     <td> <form  class ="show_member_form" action="/sessions/<%= @session.id %>/edit">
         <input class ="show_member_input" type="submit" value="Edit Session" class="boxing-buttons"/>
       </form></td>

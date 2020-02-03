@@ -6,9 +6,9 @@ CREATE TABLE sessions
 (id SERIAL primary key,
 name VARCHAR(255),
 genre VARCHAR(255),
-capacity INT
--- time,
--- date
+capacity INT,
+session_time TIME,
+session_date DATE
 );
 
 CREATE TABLE members

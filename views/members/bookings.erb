@@ -8,13 +8,21 @@
       <th>
         Time
       </th>
+      <th>
+        Date
+</th>
     </tr>
     <% for session in @sessions %>
     <tr>
       <td>
         <%=session.name %>
       </td>
-
+      <td>
+        <%=session.session_time %>
+        </td>
+      <td>
+        <%=session.session_date %>
+        </td>
     </tr>
     <% end %>
   </table>

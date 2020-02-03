@@ -41,9 +41,6 @@ post '/sessions/:session_id/bookings' do
 end
 
 post '/bookings/:id/delete' do
-  # session = Session.find(params['session_id'])
-  # session.increase_capacity
-  # session.update
   Booking.delete(params[:id])
   redirect to "/sessions"
 end
