@@ -12,15 +12,15 @@
       <td><%= session.name %></td>
       <td><%= session.genre %></td>
         <td><form action="/sessions/<%= session.id%>">
-          <input type="submit" value="View Session"/>
+          <input class = "button1" type="submit" value="View Session"/>
         </form></td>
 </tr>
     <% end %>
 </tbody>
   </table>
-
+</br>
   <form method = "get" action="/sessions/new">
-    <input type="submit" value="Add New Session"/>
+    <input class = "button1" type="submit" value="Add New Session"/>
   </form>
 
   </div>

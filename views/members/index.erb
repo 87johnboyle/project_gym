@@ -16,7 +16,7 @@
         <td><%= member.last_name %></td>
         <td><%= member.premium %></td>
           <td><form action="/members/<%= member.id%>">
-            <input type="submit" value="View Member"/>
+            <input class= "button1" type="submit" value="View Member"/>
           </form></td>
           </tr>
 
@@ -24,9 +24,9 @@
   </tbody>
 
     </table>
-
+</br>
     <form method = "get" action="/members/new">
-      <input type="submit" value="Add New Member"/>
+      <input class = "button1" type="submit" value="Add New Member"/>
     </form>
 
 </div>

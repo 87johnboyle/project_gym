@@ -21,24 +21,22 @@
     <td><%= @session.capacity %></td>
     <td><%= @session.session_date %></td>
     <td><%= @session.session_time %></td>
+    <td>  <form  class ="show_member_form" action="/sessions/<%= @session.id %>/bookings">
+        <input class ="button1" type="submit" value="View Members"/>
+      </form></td>
     <td> <form  class ="show_member_form" action="/sessions/<%= @session.id %>/edit">
-        <input class ="show_member_input" type="submit" value="Edit Session" class="boxing-buttons"/>
+        <input class ="button1" type="submit" value="Edit Session"/>
       </form></td>
     <td>  <form class ="show_member_form" method="post" action="/sessions/<%= @session.id %>/delete">
-        <input class ="show_member_input" type="submit" value="Delete Session"/>
+        <input class ="button2" type="submit" value="Delete Session"/>
       </form></td>
-      <td>  <form  class ="show_member_form" action="/sessions/<%= @session.id %>/bookings">
-          <input class ="show_member_input" type="submit" value="View Members"/>
-        </form></td>
   </tr>
 </table>
 
-
-
+</br>
 <% if @session.capacity > 0 %>
-
   <form  class ="show_member_form" action="/sessions/<%= @session.id %>/new_booking">
-    <input class ="show_member_input" type="submit" value="Book Member"/>
+    <input class ="button1" type="submit" value="Book Member"/>
   </form>
 
 <% end %>

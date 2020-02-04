@@ -19,7 +19,7 @@
             <td><%=booking.member.first_name %></td>
             <td><%=booking.member.last_name%></td>
             <td> <form action="/bookings/<%= booking.id %>/delete" method="POST">
-              <input type="submit" value="delete" />
+              <input class = "button2" type="submit" value="Delete" />
             </form></td>
           </tr>
           <% end %>

@@ -62,3 +62,27 @@ li a:hover {
 p {
   font-size: 1.2em;
 }
+
+.button1 {
+  background-color: #42495e;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button2 {
+  background-color: #b80404;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
