@@ -26,7 +26,7 @@ session2 = Session.new({
 session3 = Session.new({
   "name" => "Body Attack",
   "genre" => "Cardio",
-  "capacity" => 30,
+  "capacity" => 29,
   "session_time" => "18:00:00",
   "session_date" => "2020/03/04"
 })
