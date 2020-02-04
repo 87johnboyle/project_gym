@@ -15,9 +15,9 @@
 
         <tbody>
           <tr>
-            <% for booking in @bookings %>
-            <td><%=booking.member.first_name %></td>
-            <td><%=booking.member.last_name%></td>
+            <% for booking in @members %>
+            <td><%=booking.first_name %></td>
+            <td><%=booking.last_name%></td>
             <td> <form action="/bookings/<%= booking.id %>/delete" method="POST">
               <input class = "button2" type="submit" value="Delete" />
             </form></td>

@@ -15,6 +15,7 @@ get '/sessions/:id/bookings' do
   @sessions = Session.find(params[:id])
   @members = @sessions.booked_members()
   @bookings = Booking.all()
+  # binding.pry
   erb (:'sessions/bookings')
 end
 
