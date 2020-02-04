@@ -3,43 +3,44 @@ require_relative( '../db/sql_runner' )
 class Member
 
   attr_reader( :id,)
-  attr_accessor( :first_name, :last_name, :premium)
+  attr_accessor( :first_name, :last_name, :premium, :active)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @last_name = options['last_name']
     @premium = options['premium']
+    @active = options['active']
   end
 
-# Instance methods
+  # Instance methods
 
   def save()
     sql = "INSERT INTO members
-    (first_name, last_name, premium)
+    (first_name, last_name, premium, active)
     VALUES
-    ($1, $2, $3)
+    ($1, $2, $3, $4)
     RETURNING id"
-    values = [@first_name, @last_name, @premium]
+    values = [@first_name, @last_name, @premium, @active]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update()
     sql = "UPDATE members SET
-    (first_name, last_name, premium) = ($1, $2, $3)
-    where id = $4"
-    values = [@first_name, @last_name, @premium, @id]
+    (first_name, last_name, premium, active) = ($1, $2, $3, $4)
+    where id = $5"
+    values = [@first_name, @last_name, @premium, @active, @id]
     SqlRunner.run(sql, values)
   end
 
   def booked_sessions()
     sql = "SELECT * FROM sessions
-          INNER JOIN bookings ON bookings.session_id = sessions.id
-          WHERE bookings.member_id = $1"
-          values = [@id]
-          results = SqlRunner.run(sql, values)
-          return results.map{|session| Session.new( session )}
+    INNER JOIN bookings ON bookings.session_id = sessions.id
+    WHERE bookings.member_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|session| Session.new( session )}
   end
 
   # Class methods

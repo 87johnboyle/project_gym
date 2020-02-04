@@ -5,6 +5,7 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Premium</th>
+    <th>Active</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +19,18 @@
       <%= @member.last_name %>
     </td>
     <td>
-      <%= @member.premium %>
+      <% if @member.premium  == "t" %>
+      True
+      <%else%>
+      False
+      <% end %>
+    </td>
+    <td>
+      <% if @member.active  == "t" %>
+      True
+      <%else%>
+      False
+      <% end %>
     </td>
     <td><form  class ="show_member_form" action="/members/<%= @member.id %>/bookings">
       <input class ="button1" type="submit" value="View Sessions"/>

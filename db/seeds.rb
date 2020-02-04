@@ -31,31 +31,51 @@ session3 = Session.new({
   "session_date" => "2020/03/04"
 })
 
+session4 = Session.new({
+  "name" => "Yoga",
+  "genre" => "Low Impact",
+  "capacity" => 0,
+  "session_time" => "18:00:00",
+  "session_date" => "2020/03/04"
+})
+
   session1.save
   session2.save
   session3.save
+  session4.save
 
 member1 = Member.new({
   "first_name" => "John",
   "last_name" => "Boyle",
-  "premium" => true
+  "premium" => true,
+  "active" => true
   })
 
 member2 = Member.new({
   "first_name" => "Stephanie",
   "last_name" => "Baird",
-  "premium" => true
+  "premium" => true,
+  "active" => true
   })
 
 member3 = Member.new({
   "first_name" => "Frank",
   "last_name" => "Hardy",
-  "premium" => false
+  "premium" => false,
+  "active" => true
+})
+
+member4 = Member.new({
+  "first_name" => "Jimmy",
+  "last_name" => "McNulty",
+  "premium" => false,
+  "active" => false
 })
 
   member1.save
   member2.save
   member3.save
+  member4.save
 
   member2.last_name = "Boyle"
   member2.update
