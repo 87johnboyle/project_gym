@@ -12,18 +12,18 @@ class TestMember < MiniTest::Test
       })
     end
 
-  def test_member_first_name
-    assert_equal("John", @member1.first_name)
+    def test_member_first_name
+      assert_equal("John", @member1.first_name)
+    end
+
+    def test_member_last_name
+      assert_equal("Boyle", @member1.last_name)
+    end
+
+    def test_member_premium
+      assert_equal(TRUE, @member1.premium)
+    end
+
+
+
   end
-
-  def test_member_last_name
-    assert_equal("Boyle", @member1.last_name)
-  end
-
-  def test_member_premium
-    assert_equal(TRUE, @member1.premium)
-  end
-
-
-
-end

@@ -14,7 +14,7 @@ class Session
     @session_date = options['session_date']
   end
 
-# Instance methods
+  # Instance methods
 
   def save()
     sql = "INSERT INTO sessions
@@ -37,13 +37,13 @@ class Session
 
   def booked_members()
     sql = "SELECT members.* FROM
-          members INNER JOIN bookings
-          ON bookings.member_id = members.id
-          WHERE bookings.session_id = $1"
-          values = [@id]
-          results = SqlRunner.run(sql, values)
-          result = results.map{|member| Member.new( member )}
-          return result
+    members INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE bookings.session_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    result = results.map{|member| Member.new( member )}
+    return result
   end
 
   def reduce_capacity()

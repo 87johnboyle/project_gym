@@ -13,86 +13,86 @@ session1 = Session.new({
   "capacity" => 20,
   "session_time" => "07:00:00",
   "session_date" => "2020/03/04"
-})
-
-session2 = Session.new({
-  "name" => "Spin",
-  "genre" => "Spin Bike",
-  "capacity" => 15,
-  "session_time" => "09:00:00",
-  "session_date" => "2020/03/04"
-})
-
-session3 = Session.new({
-  "name" => "Body Attack",
-  "genre" => "Cardio",
-  "capacity" => 29,
-  "session_time" => "18:00:00",
-  "session_date" => "2020/03/04"
-})
-
-session4 = Session.new({
-  "name" => "Yoga",
-  "genre" => "Low Impact",
-  "capacity" => 0,
-  "session_time" => "18:00:00",
-  "session_date" => "2020/03/04"
-})
-
-  session1.save
-  session2.save
-  session3.save
-  session4.save
-
-member1 = Member.new({
-  "first_name" => "John",
-  "last_name" => "Boyle",
-  "premium" => true,
-  "active" => true
   })
 
-member2 = Member.new({
-  "first_name" => "Stephanie",
-  "last_name" => "Baird",
-  "premium" => true,
-  "active" => true
-  })
+  session2 = Session.new({
+    "name" => "Spin",
+    "genre" => "Spin Bike",
+    "capacity" => 15,
+    "session_time" => "09:00:00",
+    "session_date" => "2020/03/04"
+    })
 
-member3 = Member.new({
-  "first_name" => "Frank",
-  "last_name" => "Hardy",
-  "premium" => false,
-  "active" => true
-})
+    session3 = Session.new({
+      "name" => "Body Attack",
+      "genre" => "Cardio",
+      "capacity" => 29,
+      "session_time" => "18:00:00",
+      "session_date" => "2020/03/04"
+      })
 
-member4 = Member.new({
-  "first_name" => "Jimmy",
-  "last_name" => "McNulty",
-  "premium" => false,
-  "active" => false
-})
+      session4 = Session.new({
+        "name" => "Yoga",
+        "genre" => "Low Impact",
+        "capacity" => 0,
+        "session_time" => "18:00:00",
+        "session_date" => "2020/03/04"
+        })
 
-  member1.save
-  member2.save
-  member3.save
-  member4.save
+        session1.save
+        session2.save
+        session3.save
+        session4.save
 
-  member2.last_name = "Boyle"
-  member2.update
+        member1 = Member.new({
+          "first_name" => "John",
+          "last_name" => "Boyle",
+          "premium" => true,
+          "active" => true
+          })
 
-booking1 = Booking.new({
-  "session_id" => session1.id,
-  "member_id" => member1.id
-})
-booking2 = Booking.new({
-  "session_id" => session1.id,
-  "member_id" => member2.id
-})
+          member2 = Member.new({
+            "first_name" => "Stephanie",
+            "last_name" => "Baird",
+            "premium" => true,
+            "active" => true
+            })
 
-booking1.save
-booking2.save
-booking2.session_id = session2.id
-booking2.update
+            member3 = Member.new({
+              "first_name" => "Frank",
+              "last_name" => "Hardy",
+              "premium" => false,
+              "active" => true
+              })
 
-binding.pry
-nil
+              member4 = Member.new({
+                "first_name" => "Jimmy",
+                "last_name" => "McNulty",
+                "premium" => false,
+                "active" => false
+                })
+
+                member1.save
+                member2.save
+                member3.save
+                member4.save
+
+                member2.last_name = "Boyle"
+                member2.update
+
+                booking1 = Booking.new({
+                  "session_id" => session1.id,
+                  "member_id" => member1.id
+                  })
+                  booking2 = Booking.new({
+                    "session_id" => session1.id,
+                    "member_id" => member2.id
+                    })
+
+                    booking1.save
+                    booking2.save
+                    booking2.session_id = session2.id
+                    booking2.update
+
+                    binding.pry
+                    nil

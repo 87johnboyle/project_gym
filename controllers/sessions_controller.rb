@@ -37,5 +37,5 @@ end
 
 post '/sessions/:id/delete' do
   Session.delete(params[:id])
-redirect to '/sessions'
+  redirect to '/sessions'
 end

@@ -37,5 +37,5 @@ end
 
 post '/members/:id/delete' do
   Member.delete(params[:id])
-redirect to('/members')
+  redirect to('/members')
 end

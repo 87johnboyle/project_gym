@@ -11,38 +11,38 @@
       <br />
     </div>
 
-    </br>
+  </br>
 
-    <div class ="form_space">
-      <label for="last-name-field">Last Name</label>
-      <input class="new_form" type="text" name="last_name" id="last-name-field" value="<%= @member.last_name %>" />
-      <br />
-    </div>
-    </br>
+  <div class ="form_space">
+    <label for="last-name-field">Last Name</label>
+    <input class="new_form" type="text" name="last_name" id="last-name-field" value="<%= @member.last_name %>" />
+    <br />
+  </div>
+</br>
 
-    <div class ="form_space">
-      <label for="premium"> Select Membership</label>
-      <select name="premium" id="premium">
-        <option value = TRUE selected<%= "selected" if @member.premium == TRUE %>> Premium</option>
-        <option value = FALSE <%= "selected" if @member.premium == FALSE %>> Basic </option>
-      </select>
-      <br />
-    </div>
-    </br>
+<div class ="form_space">
+  <label for="premium"> Select Membership</label>
+  <select name="premium" id="premium">
+    <option value = TRUE selected<%= "selected" if @member.premium == TRUE %>> Premium</option>
+    <option value = FALSE <%= "selected" if @member.premium == FALSE %>> Basic </option>
+  </select>
+  <br />
+</div>
+</br>
 
-    <div class ="form_space">
-      <label for="active"> Active</label>
-      <select name="active" id="active">
-        <option value = TRUE selected<%= "selected" if @member.active == TRUE %>> Active </option>
-        <option value = FALSE <%= "selected" if @member.active == FALSE %>> Inactive </option>
-      </select>
-      <br />
-    </div>
-    </br>
+<div class ="form_space">
+  <label for="active"> Active</label>
+  <select name="active" id="active">
+    <option value = TRUE selected<%= "selected" if @member.active == TRUE %>> Active </option>
+    <option value = FALSE <%= "selected" if @member.active == FALSE %>> Inactive </option>
+  </select>
+  <br />
+</div>
+</br>
 
-    <div class ="form_space">
-      <input class = "button1" type="submit" value ="Submit Changes" />
-    </div>
-  </form>
+<div class ="form_space">
+  <input class = "button1" type="submit" value ="Submit Changes" />
+</div>
+</form>
 
 </div>
