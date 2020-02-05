@@ -1,9 +1,12 @@
+body {
+  background: url('/images/bg.png');
+}
+
 table, tr, td {
   border-bottom: 1px solid black;
   font-family: 'Roboto', sans-serif;
   padding: 6px;
   border-collapse: collapse;
-
 }
 
 th {
