@@ -89,3 +89,24 @@ p {
   display: inline-block;
   font-size: 16px;
 }
+
+.button1:hover {background-color: #2a2e3b}
+
+.button1:active {
+  background-color: #2a2e3b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  outline: none;
+  border: none;}
+
+  .button2:hover {background-color: #8f0303}
+
+  .button2:active {
+    background-color: #8f0303;
+    box-shadow: 0 5px #666;
+    transform: translateX(4px);
+    outline: none;
+    border: none;}
+
+    .button1:focus {outline:0;}
+    .button2:focus {outline:0;}
