@@ -16,6 +16,14 @@ class Session
 
   # Instance methods
 
+# Define save function,
+# include sql command indicating an insertion into the sessions table with the data of name,
+# genre, capacity, session time and date.
+# Assign these to value placeholders and return id.
+# Assign the placeholders to the values defined in initialize
+# Run the runner file with the sql and values inserted and push to results.
+# Bring the id out from the results file (should be in the first index of the array) and convert to integer
+
   def save()
     sql = "INSERT INTO sessions
     (name, genre, capacity, session_time, session_date)
@@ -26,6 +34,7 @@ class Session
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
+
 
   def update()
     sql = "UPDATE sessions SET
